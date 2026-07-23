@@ -24,14 +24,12 @@ class BarangForm
                         return BarangJenis::all()->pluck('nama', 'id');
                     }),
                 Select::make('satuan_id_besar')
-                    ->required()
                     ->label('Satuan Besar')
                     ->searchable()
                     ->options(function () {
                         return Satuan::all()->pluck('nama', 'id');
                     }),
                 Select::make('satuan_id_kecil')
-                    ->required()
                     ->label('Satuan Kecil')
                     ->searchable()
                     ->options(function () {
