@@ -36,6 +36,7 @@ class PegawaisTable
                 //     ->searchable(),
                 TextColumn::make('bagian.nama')
                     ->label('Bagian')
+                    ->searchable()
                     ->sortable(),
             ])
             ->filters([
