@@ -35,6 +35,7 @@ class MasterStocksTable
                     ->sortable(),
                 TextColumn::make('barang.nama')
                     ->label('Barang')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('supplier.nama')
                     ->label('Supplier')

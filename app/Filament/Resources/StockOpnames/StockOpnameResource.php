@@ -32,7 +32,7 @@ class StockOpnameResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'StockOpname';
+    // protected static ?string $recordTitleAttribute = 'StockOpname';
 
     public static function form(Schema $schema): Schema
     {

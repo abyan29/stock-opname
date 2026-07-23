@@ -25,6 +25,7 @@ class MasterStockForm
                     ->options(Bagian::pluck('nama', 'id')),
                 Select::make('barang_id')
                     ->label('Barang')
+                    ->searchable()
                     ->required()
                     // ->disabled(fn ($context) => $context === 'edit')
                     ->options(Barang::pluck('nama', 'id')),

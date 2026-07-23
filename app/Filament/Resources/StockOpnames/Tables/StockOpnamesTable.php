@@ -41,7 +41,7 @@ class StockOpnamesTable
             ])
             ->recordActions([
                 EditAction::make()
-                    ->label('Stock Opname'),
+                    ->label('Edit'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

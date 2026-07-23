@@ -45,16 +45,16 @@ class BarangsTable
                     ->searchable()
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('stok_minimal')
-                    ->numeric()
-                    ->sortable()
-                    ->alignRight()
-                    ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
-                TextColumn::make('stok_maksimal')
-                    ->numeric()
-                    ->sortable()
-                    ->alignRight()
-                    ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
+                // TextColumn::make('stok_minimal')
+                //     ->numeric()
+                //     ->sortable()
+                //     ->alignRight()
+                //     ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
+                // TextColumn::make('stok_maksimal')
+                //     ->numeric()
+                //     ->sortable()
+                //     ->alignRight()
+                //     ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
             ])
             ->filters([
                 TrashedFilter::make(),

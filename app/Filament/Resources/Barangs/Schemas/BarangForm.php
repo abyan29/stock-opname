@@ -41,10 +41,10 @@ class BarangForm
                     ->required()
                     ->numeric()
                     ->default(0),
-                TextInput::make('stok_maksimal')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                // TextInput::make('stok_maksimal')
+                //     ->required()
+                //     ->numeric()
+                //     ->default(0),
             ]);
     }
 }

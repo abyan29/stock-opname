@@ -2,11 +2,9 @@
 
 namespace App\Filament\Resources\MonitoringStocks\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\DB;
 
 class MonitoringStocksTable
 {
@@ -14,70 +12,108 @@ class MonitoringStocksTable
     {
         return $table
             ->columns([
+
                 TextColumn::make('barang.nama')
                     ->label('Nama Barang')
                     ->searchable(),
 
-                TextColumn::make('jumlah_satuan_kecil')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('total_stok')
+                    ->label('Total Stok')
+                    ->state(function ($record) {
+
+                        return DB::table('master_stock')
+                            ->where('barang_id', $record->barang_id)
+                            ->whereNull('deleted_at')
+                            ->sum('jumlah_satuan_kecil');
+
+                    })
+                    ->numeric(),
 
                 TextColumn::make('barang.stok_minimal')
-                    ->label('Stok Minimal'),
+                    ->label('Stok Minimal')
+                    ->numeric(),
 
                 TextColumn::make('status')
                     ->label('Status')
                     ->badge()
                     ->state(function ($record) {
 
-                        if ($record->jumlah_satuan_kecil == 0) {
+                        $totalStok = DB::table('master_stock')
+                            ->where('barang_id', $record->barang_id)
+                            ->whereNull('deleted_at')
+                            ->sum('jumlah_satuan_kecil');
+
+
+                        if ($totalStok <= 0) {
                             return 'Stok Habis';
                         }
 
-                        if ($record->jumlah_satuan_kecil <= $record->stok_minimal) {
+
+                        if ($totalStok <= $record->barang->stok_minimal) {
                             return 'Stok Menipis';
                         }
 
+
                         return 'Stok Aman';
+
                     })
                     ->color(function ($record) {
 
-                        if ($record->jumlah_satuan_kecil == 0) {
+                        $totalStok = DB::table('master_stock')
+                            ->where('barang_id', $record->barang_id)
+                            ->whereNull('deleted_at')
+                            ->sum('jumlah_satuan_kecil');
+
+
+                        if ($totalStok <= 0) {
                             return 'danger';
                         }
 
-                        if ($record->jumlah_satuan_kecil <= $record->stok_minimal) {
+
+                        if ($totalStok <= $record->barang->stok_minimal) {
                             return 'warning';
                         }
 
+
                         return 'success';
+
                     }),
+
 
                 TextColumn::make('keterangan')
                     ->label('Keterangan')
                     ->state(function ($record) {
 
-                        if ($record->jumlah_satuan_kecil == 0) {
+                        $totalStok = DB::table('master_stock')
+                            ->where('barang_id', $record->barang_id)
+                            ->whereNull('deleted_at')
+                            ->sum('jumlah_satuan_kecil');
+
+
+                        if ($totalStok <= 0) {
                             return 'Segera lakukan restock.';
                         }
 
-                        if ($record->jumlah_satuan_kecil <= $record->stok_minimal) {
+
+                        if ($totalStok <= $record->barang->stok_minimal) {
                             return 'Persediaan hampir habis.';
                         }
 
+
                         return 'Persediaan masih mencukupi.';
+
                     }),
+
             ])
+
             ->filters([
                 //
             ])
+
             ->recordActions([
-                // EditAction::make(),
+                //
             ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+
+            ->toolbarActions([]);
     }
 }
