@@ -18,6 +18,8 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 
 class ScmPanelProvider extends PanelProvider
 {
@@ -57,5 +59,14 @@ class ScmPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+    public function boot(): void
+    {
+        FilamentAsset::register([
+            Js::make(
+                'html5-qrcode',
+                'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js'
+            ),
+        ]);
     }
 }

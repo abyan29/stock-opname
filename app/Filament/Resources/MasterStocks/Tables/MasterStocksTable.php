@@ -62,6 +62,7 @@ class MasterStocksTable
                     ->numeric()
                     ->money('IDR')
                     ->sortable(),
+                TextColumn::make('lokasi.deskripsi'),
             ])
             ->filters([
                 TrashedFilter::make(),

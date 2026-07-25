@@ -7,6 +7,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 
+
 class StockOpnameForm
 {
     public static function configure(Schema $schema): Schema
