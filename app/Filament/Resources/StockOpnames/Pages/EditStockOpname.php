@@ -5,7 +5,6 @@ namespace App\Filament\Resources\StockOpnames\Pages;
 use App\Filament\Resources\StockOpnames\StockOpnameResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
-use Filament\Actions\Action;
 
 class EditStockOpname extends EditRecord
 {
@@ -15,13 +14,6 @@ class EditStockOpname extends EditRecord
     {
         return [
             DeleteAction::make(),
-        //     Action::make('scan')
-        //         ->label('Scan QR')
-        //         ->icon('heroicon-o-camera')
-        //         ->color('success')
-        //         ->url(route('scanner')),
         ];
     }
-
-    
 }

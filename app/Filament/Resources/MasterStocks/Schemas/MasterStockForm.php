@@ -21,23 +21,23 @@ class MasterStockForm
                 Select::make('bagian_id')
                     ->label('Bagian')
                     ->required()
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->options(Bagian::pluck('nama', 'id')),
                 Select::make('barang_id')
                     ->label('Barang')
                     ->searchable()
                     ->required()
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->options(Barang::pluck('nama', 'id')),
                 Select::make('supplier_id')
                     ->label('Supplier')
                     ->required()
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->options(Supplier::pluck('nama', 'id')),
                 Select::make('produsen_id')
                     ->label('Produsen')
                     ->required()
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->options(Produsen::pluck('nama', 'id')),
                 TextInput::make('jumlah_satuan_kecil')
                     ->label('Jumlah Satuan Kecil')
@@ -47,23 +47,23 @@ class MasterStockForm
                 Select::make('satuan_id_kecil')
                     ->label('Satuan Kecil')
                     ->required()
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->options(Satuan::pluck('nama', 'id')),
-                TextInput::make('batch'),
-                    // ->disabled(fn ($context) => $context === 'edit'),
-                DatePicker::make('kadaluwarsa'),
-                    // ->disabled(fn ($context) => $context === 'edit'),
+                TextInput::make('batch')
+                    ->disabled(fn ($context) => $context === 'edit'),
+                DatePicker::make('kadaluwarsa')
+                    ->disabled(fn ($context) => $context === 'edit'),
                 TextInput::make('harga_beli')
                     ->required()
                     ->numeric()
                     ->prefix('Rp')
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->default(0),
                 TextInput::make('harga_jual')
                     ->required()
                     ->numeric()
                     ->prefix('Rp')
-                    // ->disabled(fn ($context) => $context === 'edit')
+                    ->disabled(fn ($context) => $context === 'edit')
                     ->default(0),
             ]);
     }

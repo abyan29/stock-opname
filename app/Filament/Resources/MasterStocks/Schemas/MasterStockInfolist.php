@@ -55,7 +55,7 @@ class MasterStockInfolist
                         ->icon('heroicon-o-qr-code')
                         ->modalHeading('QR Code MasterStock')
                         ->modalContent(function (MasterStock $record) {
-                            $url = url("/scm/stock-opnames/{$record->id}/edit");
+                            $url = url("/scm/stock-opnames/create?barang_id=$record->barang_id&batch=$record->batch&bagian_id=$record->bagian_id");
                             $qr = QrCode::size(200)->generate($url);
 
                             return view('components.qr-code', ['qr' => $qr, 'record' => $record]);

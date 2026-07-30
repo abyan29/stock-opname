@@ -14,25 +14,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use UnitEnum;
 
 class StockOpnameResource extends Resource
 {
-    protected static string|UnitEnum|null $navigationGroup = 'Stock Opname';
-
-    protected static ?int $navigationSort = 1;
-
-    protected static ?string $navigationLabel = 'Stock Opname';
-
-    protected static ?string $modelLabel = 'Stock Opname';
-
-    protected static ?string $pluralModelLabel = 'Stock Opname';
-
-    protected static ?string $model = MasterStock::class;
+    protected static ?string $model = StockOpname::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    // protected static ?string $recordTitleAttribute = 'StockOpname';
+    protected static ?string $recordTitleAttribute = 'StockOpname';
 
     public static function form(Schema $schema): Schema
     {

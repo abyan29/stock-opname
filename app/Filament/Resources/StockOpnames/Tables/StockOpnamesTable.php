@@ -14,34 +14,54 @@ class StockOpnamesTable
     {
         return $table
             ->columns([
+                TextColumn::make('barang.nama')
+                    ->label('Barang')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('bagian.nama')
                     ->label('Bagian')
-                    ->searchable(),
-
-                TextColumn::make('barang.nama')
-                    ->label('Nama Barang')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
 
                 TextColumn::make('batch')
-                    ->label('Batch'),   
-                
-                TextColumn::make('kadaluwarsa')
-                    ->label('Kadaluwarsa')
-                    ->date(),
+                    ->label('Batch')
+                    ->searchable(),
 
-                TextColumn::make('jumlah_satuan_kecil')
+                TextColumn::make('stok_sistem')
                     ->label('Stok Sistem')
+                    ->numeric()
                     ->sortable(),
-                
-                
-                
+
+                TextColumn::make('stok_fisik')
+                    ->label('Stok Fisik')
+                    ->numeric()
+                    ->sortable(),
+
+                TextColumn::make('selisih')
+                    ->label('Selisih')
+                    ->badge()
+                    ->sortable()
+                    ->color(fn ($state) => match (true) {
+
+                        $state > 0 => 'warning',
+
+                        $state < 0 => 'danger',
+
+                        default => 'success',
+
+                    }),
+
+                TextColumn::make('created_at')
+                    ->label('Tanggal Stock Opname')
+                    ->dateTime('d M Y H:i')
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                EditAction::make()
-                    ->label('Edit'),
+                EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
