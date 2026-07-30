@@ -38,12 +38,16 @@ class MasterStockInfolist
                     ->label('Satuan Kecil'),
                 TextEntry::make('batch')
                     ->placeholder('-'),
+                TextEntry::make('lokasi')
+                    ->placeholder('-'),
                 TextEntry::make('kadaluwarsa')
                     ->date()
                     ->placeholder('-'),
                 TextEntry::make('harga_beli')
+                    ->prefix('Rp ')
                     ->numeric(),
                 TextEntry::make('harga_jual')
+                    ->prefix('Rp ')
                     ->numeric(),
                 Actions::make([
                     Action::make('generate_qr')

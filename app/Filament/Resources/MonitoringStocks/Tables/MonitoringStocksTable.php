@@ -79,7 +79,11 @@ class MonitoringStocksTable
 
                     }),
 
-
+                TextColumn::make('kadaluwarsa')
+                    ->date()
+                    ->searchable()
+                    ->sortable(),
+                
                 TextColumn::make('keterangan')
                     ->label('Keterangan')
                     ->state(function ($record) {

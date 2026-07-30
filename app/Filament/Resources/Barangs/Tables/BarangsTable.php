@@ -35,11 +35,11 @@ class BarangsTable
                     ->label('Jenis Barang')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('satuan_besar.nama')
-                    ->label('Satuan Besar')
-                    ->searchable()
-                    ->numeric()
-                    ->sortable(),
+                // TextColumn::make('satuan_besar.nama')
+                //     ->label('Satuan Besar')
+                //     ->searchable()
+                //     ->numeric()
+                //     ->sortable(),
                 TextColumn::make('satuan_kecil.nama')
                     ->label('Satuan Kecil')
                     ->searchable()
