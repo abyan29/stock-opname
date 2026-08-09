@@ -23,14 +23,14 @@ class BarangForm
                     ->options(function () {
                         return BarangJenis::all()->pluck('nama', 'id');
                     }),
-                Select::make('satuan_id_besar')
-                    ->label('Satuan Besar')
-                    ->searchable()
-                    ->options(function () {
-                        return Satuan::all()->pluck('nama', 'id');
-                    }),
+                // Select::make('satuan_id_besar')
+                //     ->label('Satuan Besar')
+                //     ->searchable()
+                //     ->options(function () {
+                //         return Satuan::all()->pluck('nama', 'id');
+                //     }),
                 Select::make('satuan_id_kecil')
-                    ->label('Satuan Kecil')
+                    ->label('Satuan')
                     ->searchable()
                     ->options(function () {
                         return Satuan::all()->pluck('nama', 'id');

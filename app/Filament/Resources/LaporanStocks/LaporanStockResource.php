@@ -26,7 +26,7 @@ class LaporanStockResource extends Resource
 
     protected static ?string $model = MasterStock::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentChartBar;
 
     protected static ?string $recordTitleAttribute = 'MasterStock';
 

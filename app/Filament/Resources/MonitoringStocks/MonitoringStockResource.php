@@ -30,7 +30,7 @@ class MonitoringStockResource extends Resource
 
     protected static ?string $model = MasterStock::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartBar;
 
     public static function getEloquentQuery(): Builder
     {

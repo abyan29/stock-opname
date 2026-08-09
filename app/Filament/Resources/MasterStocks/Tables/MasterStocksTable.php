@@ -44,10 +44,11 @@ class MasterStocksTable
                     ->label('Produsen')
                     ->sortable(),
                 TextColumn::make('jumlah_satuan_kecil')
+                    ->label('Jumlah satuan')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('satuan.nama')
-                    ->label('Satuan Kecil')
+                    ->label('Satuan')
                     ->sortable(),
                 TextColumn::make('batch')
                     ->searchable(),
