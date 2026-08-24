@@ -17,7 +17,7 @@ class LokasisTable
     {
         return $table
             ->columns([
-                TextColumn::make('bagian_id')
+                TextColumn::make('bagian.nama')
                     ->label('Bagian')
                     ->numeric()
                     ->sortable(),

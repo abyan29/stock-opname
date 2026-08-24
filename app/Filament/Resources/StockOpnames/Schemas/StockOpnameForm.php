@@ -104,6 +104,7 @@ class StockOpnameForm
             TextInput::make('stok_fisik')
                 ->label('Stok Fisik')
                 ->numeric()
+                ->minValue(0)
                 ->required()
                 ->live()
                 ->afterStateUpdated(function ($state, $get, $set) {

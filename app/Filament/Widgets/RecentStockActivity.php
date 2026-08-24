@@ -18,7 +18,11 @@ class RecentStockActivity extends TableWidget
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn (): Builder => MasterStock::query())
+            // ->query(fn (): Builder => MasterStock::query())
+            ->query(
+            fn (): Builder => MasterStock::query()
+                ->orderByDesc('updated_at')
+        )
             ->columns([
                 TextColumn::make('barang.nama')
                     ->label('Barang')
